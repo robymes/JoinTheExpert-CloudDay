@@ -1,0 +1,6 @@
+FROM microsoft/aspnetcore-build:1.1.1
+LABEL maintainer Roberto Messora <roberto.messora@valuelab.it>
+COPY $projPath/$apiProj .
+RUN dotnet restore
+RUN dotnet build
+RUN dotnet publish --output $outPath/ --configuration Release
